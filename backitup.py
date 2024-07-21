@@ -47,13 +47,13 @@ try:
     else:
         folder_id = response['files'][0]['id']
         
-    for file in os.listdir(r'C:\Users\91701\OneDrive\Desktop\Python Development\File Backup System\Random Folder'):
+    for file in os.listdir(r'FOLDER_PATH'):
         file_metadata = {
             "name": file,
             "parents": [folder_id]
         }
         
-        media = MediaFileUpload(f"C:\\Users\\91701\\OneDrive\\Desktop\\Python Development\\File Backup System\\Random Folder/{file}")
+        media = MediaFileUpload(f"FOLDER_PATH/{file}")
         upload_file = service.files().create(body=file_metadata,
                                              media_body=media,
                                              fields="id").execute()
